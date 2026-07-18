@@ -16,7 +16,8 @@ serverKey = os.environ.get('serverKey')
 
 # 获取 COOKIE 环境变量
 cookie_json = os.environ.get('COOKIE')
-
+print(f"cookie_json type: {type(cookie_json)}")
+print(f"cookie_json: {cookie_json}")
 # 获取 COOKIE 环境变量并解析为 JSON 列表
 
 
@@ -24,6 +25,7 @@ if cookie_json:
     try:
         # 解析 JSON 字符串
         cookie_data = json.loads(cookie_json)
+        print(f"cookie_data:{cookie_data}")
     except json.JSONDecodeError:
         print("错误：无法解析 COOKIE 环境变量为 JSON。")
 else:
