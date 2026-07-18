@@ -99,20 +99,20 @@ for i in range(len(cookie_datas)):
         web.find_element(By.XPATH, '//*[@id="p_14"]/a/img').click()
         web.find_element(By.XPATH, '//*[@id="p_15"]/a/img').click()
         print('任务已领取')
-        mse+=Lingqu(web,i)
+        mes+=Lingqu(web,i)
 
     elif weekly_task_1:
         web.find_element(By.XPATH, '//*[@id="p_15"]/a/img').click()
-        mse+=Lingqu(web,i)
+        mes+=Lingqu(web,i)
 
     elif weekly_task_2:
         web.find_element(By.XPATH, '//*[@id="p_14"]/a/img').click()
-        mse+=Lingqu(web,i)
+        mes+=Lingqu(web,i)
     else:
         print('任务暂未刷新')
 
     web.quit()
-print(f"mse:{mse}")
+print(f"mes:{mes}")
 import time
 from datetime import datetime
 title=datetime.fromtimestamp(int(time.time()))
