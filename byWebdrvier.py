@@ -115,7 +115,7 @@ for i in range(len(cookie_datas)):
 print(f"mes:{mes}")
 import time
 from datetime import datetime
-title=datetime.fromtimestamp(int(time.time()))
+title=str(datetime.fromtimestamp(int(time.time())))
 print(f"title:{title}")
 async def sendMessage():
     bot = Bot(token=botToken)
