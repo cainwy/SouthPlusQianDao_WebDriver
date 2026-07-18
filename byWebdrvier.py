@@ -59,6 +59,8 @@ def Lingqu(web,i):
             mes+=f"index {i}:日常领取成功\n"
             messagecontent = '日常领取成功'
             messagecontent = requests.utils.quote(messagecontent)
+        except:
+            print('日常领取失败')
         try:
             # 尝试点击周常,没有就跳了
             web.find_element(By.XPATH, '//*[@id="both_14"]/a/img').click()
