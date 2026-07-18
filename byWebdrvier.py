@@ -91,11 +91,13 @@ for i in range(len(cookie_datas)):
     time.sleep(3)
     # 领取周常
     soup = BeautifulSoup(web.page_source, 'html.parser')
+    print("soup")
+    print(soup)
     weekly_task_1 = soup.find('span', id='p_15')
     weekly_task_2 = soup.find('span', id='p_14')
     # user=str(web.find_element(By.XPATH, '//*[@id="user-login"]/a[1]'))
-    user=soup.find("div",id="user-login").find("a").text
-    mes+=f"user:{user}\n"
+    # user=soup.find("div",id="user-login").find("a").text
+    # mes+=f"user:{user}\n"
     mes+=f"weekly_task_1, weekly_task_2/:{weekly_task_1},{weekly_task_2}\n"
     print(weekly_task_1, weekly_task_2)
 
