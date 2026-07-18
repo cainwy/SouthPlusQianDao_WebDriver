@@ -48,8 +48,6 @@ def Lingqu(web,i):
     mes=f"No.{i}"
     try:
         # 切换到进行中的任务
-        user=str(web.find_element(By.XPATH, '//*[@id="user-login"]/a[1]'))
-        mes+=f"user:{user}\n"
         web.find_element(By.XPATH, '//*[@id="main"]/table/tbody/tr/td[1]/div[2]/table/tbody/tr[3]/td').click()
         # 点击进行中的任务
         # 完成日常
@@ -95,6 +93,9 @@ for i in range(len(cookie_datas)):
     soup = BeautifulSoup(web.page_source, 'html.parser')
     weekly_task_1 = soup.find('span', id='p_15')
     weekly_task_2 = soup.find('span', id='p_14')
+    user=str(web.find_element(By.XPATH, '//*[@id="user-login"]/a[1]'))
+    mes+=f"user:{user}\n"
+    mes+=f"weekly_task_1, weekly_task_2/:{weekly_task_1},{weekly_task_2}\n"
     print(weekly_task_1, weekly_task_2)
 
     if weekly_task_1 and weekly_task_2:
