@@ -43,6 +43,12 @@ chrome_options.add_argument("--headless")  # 如果你在无头模式下运行
 chrome_options.add_argument("--no-sandbox")  # 解决一些权限问题
 chrome_options.add_argument("--disable-dev-shm-usage")  # 解决共享内存问题
 service = Service(ChromeDriverManager().install())
+# 重要的伪装选项
+chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+chrome_options.add_experimental_option('useAutomationExtension', False)
+# 添加用户代理
+chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
 
 def Lingqu(web,i):
     mes=f"No.{i}"
@@ -79,9 +85,10 @@ mes=""
 for i in range(len(cookie_datas)):
     url = 'https://www.south-plus.net/plugin.php?H_name-tasks.html.html'
     web = webdriver.Chrome(service=service, options=chrome_options)
+    web.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
     web.get(url)
 
-    time.sleep(1)
+    time.sleep(3)
     # 将cookies添加到webdriver中
     for cookie in cookie_datas[i]:
         web.add_cookie(cookie)
