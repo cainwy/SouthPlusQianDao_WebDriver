@@ -13,8 +13,6 @@ import asyncio
 from telegram import Bot
 from webdriver_manager.chrome import ChromeDriverManager
 
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service, options=chrome_options)
 
 # 获取系统变量serverKey
 serverKey = os.environ.get('serverKey')
@@ -44,9 +42,7 @@ chrome_options = Options()
 chrome_options.add_argument("--headless")  # 如果你在无头模式下运行
 chrome_options.add_argument("--no-sandbox")  # 解决一些权限问题
 chrome_options.add_argument("--disable-dev-shm-usage")  # 解决共享内存问题
-
-
-service = Service(rf'/usr/local/bin/chromedriver')  # 确保路径正确
+service = Service(ChromeDriverManager().install())
 
 def Lingqu(web,i):
     mes=""
