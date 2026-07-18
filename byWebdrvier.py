@@ -11,6 +11,10 @@ import time
 import os
 import asyncio
 from telegram import Bot
+from webdriver_manager.chrome import ChromeDriverManager
+
+service = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service, options=chrome_options)
 
 # 获取系统变量serverKey
 serverKey = os.environ.get('serverKey')
