@@ -112,10 +112,11 @@ for i in cookie_datas:
         print('任务暂未刷新')
 
     web.quit()
-
+print(f"mse:{mse}")
 import time
 from datetime import datetime
 title=datetime.fromtimestamp(int(time.time()))
+print(f"title:{title}")
 async def sendMessage():
     bot = Bot(token=botToken)
     await bot.send_message(chat_id=chatId,text=title+"\n"+mes)
