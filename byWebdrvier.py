@@ -15,8 +15,8 @@ from telegram import Bot
 # 获取系统变量serverKey
 serverKey = os.environ.get('serverKey')
 
-botToken=os.environ.get('botToken')
-chatId=os.environ.get('chatId')
+botToken=os.environ.get('BOTTOKEN')
+chatId=os.environ.get('CHATID')
 
 # 获取 COOKIE 环境变量
 cookie_json = os.environ.get('COOKIE')
