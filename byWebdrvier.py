@@ -76,7 +76,7 @@ def Lingqu(web,i):
     finally:
         return mes
 mes=""    
-for i in range(cookie_datas):
+for i in range(len(cookie_datas)):
     url = 'https://www.south-plus.net/plugin.php?H_name-tasks.html.html'
     web = webdriver.Chrome(service=service, options=chrome_options)
     web.get(url)
