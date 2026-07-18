@@ -17,22 +17,14 @@ jobs:
         python-version: 3.x
     
     - name: Install dependencies
-      run: pip install -r requirements.txt
-
-    - name: Install Chrome
       run: |
-        CHROME_VERSION=103.0.5060.53
-        wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_130.0.6723.91-1_amd64.deb
-        sudo dpkg -i google-chrome-stable_130.0.6723.91-1_amd64.deb || sudo apt-get install -f
+        pip install -r requirements.txt
+        pip install webdriver-manager   # 自动管理驱动
+
+    - name: Install Chrome (latest stable)
+      run: |
+        sudo apt-get update
         sudo apt-get install -y google-chrome-stable
-
-    - name: Install ChromeDriver
-      run: |
-        wget https://storage.googleapis.com/chrome-for-testing-public/130.0.6723.91/linux64/chromedriver-linux64.zip
-        unzip chromedriver-linux64.zip
-        cd chromedriver-linux64
-        chmod +x chromedriver
-        sudo mv chromedriver /usr/local/bin/
 
     - name: 总脚本
       env:
